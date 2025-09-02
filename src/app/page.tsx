@@ -47,7 +47,7 @@ export default function Home() {
                 </section>
                 <section className="mt-[-500px]">
                     <LampComponent />
-                    <div className="flex flex-wrap items-center justify-center flex-col md:flex-row gap-8 md:mb-5 -mt-72">
+                    <div className="flex flex-wrap md:flex-nowrap items-center justify-center flex-col md:flex-row gap-8 md:mb-5 -mt-72">
                         {plans.map((plan) => (
                             <PricingCard key={plan.title} {...plan} />
                         ))}

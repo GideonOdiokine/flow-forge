@@ -36,9 +36,6 @@ const Navbar = async (props: any) => {
                     <li>
                         <Link href="#">Documentation</Link>
                     </li>
-                    <li>
-                        <Link href="#">Enterprise</Link>
-                    </li>
                 </ul>
             </nav>
             <aside className="flex items-center gap-4">

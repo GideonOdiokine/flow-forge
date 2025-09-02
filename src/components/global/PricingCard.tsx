@@ -5,7 +5,7 @@ import { CheckIcon } from 'lucide-react'
 function PricingCard({ title, price, features }: { title: string, price: string, features: string[] }) {
   return (
     <CardContainer className="inter-var ">
-      <CardBody className="relative w-full md:w-[350px] rounded-xl p-6 border bg-gray-50 dark:bg-black dark:border-white/[0.2] group/card">
+      <CardBody className="relative w-full [350px] rounded-xl p-6 border bg-gray-50 dark:bg-black dark:border-white/[0.2] group/card">
         <CardItem translateZ="50" className="text-xl font-bold text-neutral-600 dark:text-white">
           {title}
           <h2 className="text-6xl">{price}</h2>
