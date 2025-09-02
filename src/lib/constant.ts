@@ -11,6 +11,24 @@ export const clients = [...new Array(10)].map((client, index) => ({
   href: `/${index + 1}.png`,
 }))
 
+export const plans = [
+  {
+    title: 'Hobby',
+    price: '$0',
+    features: ['3 Free automations', '100 tasks per month', 'Two-step Actions'],
+  },
+  {
+    title: 'Pro Plan',
+    price: '$29',
+    features: ['Unlimited automations', '5,000 tasks per month', 'Multi-step Actions'],
+  },
+  {
+    title: 'Unlimited',
+    price: '$99',
+    features: ['Unlimited automations', '100,000 tasks per month', 'Premium integrations'],
+  },
+]
+
 export const products = [
   {
     title: 'Moonbeam',
