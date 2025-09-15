@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${font.className} antialiased`}>
+      <body className={`${font.className} antialiased`} suppressHydrationWarning>
         <ThemeProvider
           attribute="class" // Use 'class' to apply dark mode, not 'style' or 'data-theme'
           defaultTheme="system"
