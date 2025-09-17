@@ -19,7 +19,7 @@ import { useBilling } from '@/providers/billing-provider'
 
 const InfoBar = (props: any) => {
     const { credits, setCredits, setTier } = useBilling()
-    const tier ='Free'
+    const tier: any = 'Free' //temporary
 
     const onGetPayment = async () => {
         // const response = await onPaymentDetails()
