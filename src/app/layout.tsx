@@ -30,7 +30,6 @@ export default function RootLayout({
                     enableSystem
                     disableTransitionOnChange
                 >
-                    <InfoBar />
                     {children}
                 </ThemeProvider>
             </body>

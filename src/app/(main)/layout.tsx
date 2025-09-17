@@ -1,5 +1,6 @@
 import React from 'react'
 import Sidebar from '@/components/sidebar'
+import InfoBar from '@/components/infobar'
 
 type Props = { children: React.ReactNode }
 
@@ -13,8 +14,9 @@ const Layout = (props: Props) => {
             </div>
 
             <main
-                className={`flex-1 !h-[100vh] !w-full transition-all pl-[105px]`}
+                className={`flex-1 !h-[100vh]  !w-full transition-all pl-[105px]`}
             >
+                <InfoBar />
                 {props.children}
             </main>
         </div>
