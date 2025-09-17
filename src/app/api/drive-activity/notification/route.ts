@@ -1,6 +1,6 @@
-import { postContentToWebHook } from '@/app/(main)/(pages)/connections/_actions/discord-connection'
-import { onCreateNewPageInDatabase } from '@/app/(main)/(pages)/connections/_actions/notion-connection'
-import { postMessageToSlack } from '@/app/(main)/(pages)/connections/_actions/slack-connection'
+// import { postContentToWebHook } from '@/app/(main)/(pages)/connections/_actions/discord-connection'
+// import { onCreateNewPageInDatabase } from '@/app/(main)/(pages)/connections/_actions/notion-connection'
+// import { postMessageToSlack } from '@/app/(main)/(pages)/connections/_actions/slack-connection'
 import { db } from '@/lib/db'
 import axios from 'axios'
 import { headers } from 'next/headers'
@@ -10,11 +10,11 @@ export async function POST(req: NextRequest) {
   console.log('🔴 Changed')
   const headersList = headers()
   let channelResourceId
-  headersList.forEach((value, key) => {
-    if (key == 'x-goog-resource-id') {
-      channelResourceId = value
-    }
-  })
+//   headersList.forEach((value, key) => {
+//     if (key == 'x-goog-resource-id') {
+//       channelResourceId = value
+//     }
+//   })
 
   if (channelResourceId) {
     const user = await db.user.findFirst({
@@ -44,10 +44,10 @@ export async function POST(req: NextRequest) {
                 },
               })
               if (discordMessage) {
-                await postContentToWebHook(
-                  flow.discordTemplate!,
-                  discordMessage.url
-                )
+                // await postContentToWebHook(
+                //   flow.discordTemplate!,
+                //   discordMessage.url
+                // )
                 flowPath.splice(flowPath[current], 1)
               }
             }
@@ -58,19 +58,19 @@ export async function POST(req: NextRequest) {
                   value: channel,
                 }
               })
-              await postMessageToSlack(
-                flow.slackAccessToken!,
-                channels,
-                flow.slackTemplate!
-              )
+            //   await postMessageToSlack(
+            //     flow.slackAccessToken!,
+            //     channels,
+            //     flow.slackTemplate!
+            //   )
               flowPath.splice(flowPath[current], 1)
             }
             if (flowPath[current] == 'Notion') {
-              await onCreateNewPageInDatabase(
-                flow.notionDbId!,
-                flow.notionAccessToken!,
-                JSON.parse(flow.notionTemplate!)
-              )
+            //   await onCreateNewPageInDatabase(
+            //     flow.notionDbId!,
+            //     flow.notionAccessToken!,
+            //     JSON.parse(flow.notionTemplate!)
+            //   )
               flowPath.splice(flowPath[current], 1)
             }
 
