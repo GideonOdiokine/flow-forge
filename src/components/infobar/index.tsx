@@ -71,7 +71,7 @@ const InfoBar = (props: any) => {
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>
-      <UserButton />
+      {/* <UserButton /> */}
     </div>
   )
 }
