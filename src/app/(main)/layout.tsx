@@ -1,6 +1,5 @@
 import React from 'react'
 import Sidebar from '@/components/sidebar'
-import InfoBar from '@/components/infobar'
 
 type Props = { children: React.ReactNode }
 
@@ -10,9 +9,7 @@ const Layout = (props: Props) => {
             <div
                 className={` h-full md:flex   md:flex-col md:fixed md:inset-y-0 `}
             >
-                <Sidebar
-
-                />
+                <Sidebar />
             </div>
 
             <main
