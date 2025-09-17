@@ -50,3 +50,8 @@
 //     return new NextResponse('Internal Server Error', { status: 500 })
 //   }
 // }
+import { NextResponse } from "next/server";
+
+export async function GET() {
+  return NextResponse.json({ message: "Discord callback route placeholder" });
+}
