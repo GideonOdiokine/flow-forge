@@ -8,6 +8,7 @@ import PricingCard from '@/components/global/pricingCard';
 import { Button } from '@/components/ui/button';
 import { clients, plans, products } from '@/lib/constant';
 
+
 export default function Home() {
     return (
         <main className="flex items-center justify-center flex-col">
