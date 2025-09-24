@@ -6,6 +6,7 @@ import "./globals.css";
 // from the providers directory
 import { ThemeProvider } from '@/providers/theme-provider';
 import InfoBar from '@/components/infobar';
+import { ClerkProvider } from '@clerk/nextjs';
 
 const font = DM_Sans({
     subsets: ["latin"],
@@ -24,6 +25,7 @@ export default function RootLayout({
     return (
         <html lang="en" suppressHydrationWarning>
             <body className={`${font.className} antialiased`} suppressHydrationWarning>
+                <ClerkProvider>
                 <ThemeProvider
                     attribute="class" // Use 'class' to apply dark mode, not 'style' or 'data-theme'
                     defaultTheme="system"
@@ -32,6 +34,7 @@ export default function RootLayout({
                 >
                     {children}
                 </ThemeProvider>
+                </ClerkProvider>
             </body>
         </html>
     );
