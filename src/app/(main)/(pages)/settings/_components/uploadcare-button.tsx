@@ -19,6 +19,7 @@ const UploadCareButton = ({ onUpload }: Props) => {
       classNameUploader="uc-light"
       onFileUploadSuccess={async (file) => {
         const uploaded = await onUpload?.(file.cdnUrl)
+        console.log(file.cdnUrl, uploaded)
         if (uploaded) router.refresh()
       }}
     />
