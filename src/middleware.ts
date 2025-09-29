@@ -19,6 +19,7 @@ const isIgnoredRoute = createRouteMatcher([
     '/api/auth/callback/discord',
     '/api/auth/callback/notion',
     '/api/auth/callback/slack',
+    '/api/auth/callback/slack',
     '/api/flow',
     '/api/cron/wait',
 ])

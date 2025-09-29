@@ -62,7 +62,9 @@ const ProfileForm = ({ user, onUpdate }: Props) => {
                                 <Input
                                     {...field}
                                     placeholder="Name"
-                                    className={!field.value ? 'border-red-500' : ''}
+                                    className={!field.value ? 'border-red-500' : 'border-[#2F006B]'}
+
+
                                 />
                             </FormControl>
                             <FormMessage className='text-red-500' />
@@ -78,9 +80,12 @@ const ProfileForm = ({ user, onUpdate }: Props) => {
                             <FormControl>
                                 <Input
                                     {...field}
-                                    disabled={true}
+                                    disabled={field.value.length >= 20 ? true : false}
+
                                     placeholder="Email"
                                     type="email"
+                                    className={!field.value ? 'border-red-500' : 'border-[#2F006B]'}
+
                                 />
                             </FormControl>
                             <FormMessage className='text-red-500' />
@@ -89,7 +94,7 @@ const ProfileForm = ({ user, onUpdate }: Props) => {
                 />
                 <Button
                     type="submit"
-                    className="self-start !bg-[#2F006B] hover:text-white "
+                    className={`self-start !bg-[#2F006B] hover:text-white !pointer-events-auto disabled:!cursor-not-allowed ${isLoading || !form.formState.isDirty || !form.formState.isValid ? 'opacity-50 cursor-not-allowed' : ''}`}
                     disabled={isLoading || !form.formState.isDirty || !form.formState.isValid}
                 >
                     {isLoading ? (
