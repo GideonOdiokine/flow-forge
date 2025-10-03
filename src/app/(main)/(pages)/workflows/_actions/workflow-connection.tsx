@@ -156,7 +156,7 @@ export const onCreateWorkflow = async (name: string, description: string) => {
       data: {
         userId: user.id,
         name,
-        description,
+        description
       },
     })
 
