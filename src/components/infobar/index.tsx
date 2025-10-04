@@ -57,7 +57,7 @@ const InfoBar = (props: any) => {
                     <TooltipTrigger>
                         <Headphones />
                     </TooltipTrigger>
-                    <TooltipContent>
+                    <TooltipContent className='text-black'>
                         <p>Contact Support</p>
                     </TooltipContent>
                 </Tooltip>
@@ -67,7 +67,7 @@ const InfoBar = (props: any) => {
                     <TooltipTrigger>
                         <Book />
                     </TooltipTrigger>
-                    <TooltipContent>
+                    <TooltipContent className='text-black'>
                         <p>Guide</p>
                     </TooltipContent>
                 </Tooltip>
