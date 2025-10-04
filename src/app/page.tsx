@@ -5,7 +5,6 @@ import { InfiniteMovingCards } from '@/components/global/infinite-moving-cards';
 import { LampComponent } from '@/components/global/lamp';
 import Navbar from '@/components/global/navbar';
 import PricingCard from '@/components/global/pricing-card';
-
 import { Button } from '@/components/ui/button';
 import { clients, plans, products } from '@/lib/constant';
 
@@ -49,7 +48,7 @@ export default function Home() {
                 </section>
                 <section className="mt-[-500px]">
                     <LampComponent />
-                    <div className="flex flex-wrap md:flex-nowrap items-center justify-center flex-col md:flex-row gap-8 md:mb-5 -mt-72">
+                    <div className="flex flex-wrap md:flex-nowrap items-center justify-center flex-col md:flex-row gap-8 mb-2 md:mb-5 -mt-72">
                         {plans.map((plan) => (
                             <PricingCard key={plan.title} {...plan} />
                         ))}
