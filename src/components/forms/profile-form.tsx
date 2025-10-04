@@ -62,9 +62,7 @@ const ProfileForm = ({ user, onUpdate }: Props) => {
                                 <Input
                                     {...field}
                                     placeholder="Name"
-                                    className={!field.value ? 'border-red-500' : 'border-[#2F006B]'}
-
-
+                                    className={!field.value ? 'border-red-500' : ''}
                                 />
                             </FormControl>
                             <FormMessage className='text-red-500' />
@@ -84,7 +82,7 @@ const ProfileForm = ({ user, onUpdate }: Props) => {
 
                                     placeholder="Email"
                                     type="email"
-                                    className={!field.value ? 'border-red-500' : 'border-[#2F006B]'}
+                                    className={!field.value ? 'border-red-500' : ''}
 
                                 />
                             </FormControl>

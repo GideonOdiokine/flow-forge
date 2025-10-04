@@ -8,6 +8,14 @@ const nextConfig: NextConfig = {
                 protocol: 'https',
                 hostname: 'img.clerk.com',
             },
+            {
+                protocol: 'https',
+                hostname: 'ucarecdn.com',
+            },
+            {
+                protocol: 'https',
+                hostname: 'lomwqwq633.ucarecd.net',
+            },
         ],
     },
     //   WIP: I will take this out later

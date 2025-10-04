@@ -45,7 +45,7 @@ const InfoBar = (props: any) => {
                     </span>
                 )}
             </span>
-            <span className="hidden md:flex items-center rounded-full bg-muted px-4">
+            <span className="hidden md:flex items-center rounded-full border bg-muted px-4">
                 <Search />
                 <Input
                     placeholder="Quick Search"

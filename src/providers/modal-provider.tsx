@@ -23,7 +23,7 @@ export const ModalContext = createContext<ModalContextType>({
 })
 
 const ModalProvider: React.FC<ModalProviderProps> = ({ children }) => {
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(true)
     const [data, setData] = useState<ModalData>({})
     const [showingModal, setShowingModal] = useState<React.ReactNode>(null)
     const [isMounted, setIsMounted] = useState(false)
@@ -37,6 +37,7 @@ const ModalProvider: React.FC<ModalProviderProps> = ({ children }) => {
         fetchData?: () => Promise<any>
     ) => {
         if (modal) {
+            console.log('open modal', isOpen, modal)
             if (fetchData) {
                 setData({ ...data, ...(await fetchData()) })
             }

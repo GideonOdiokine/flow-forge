@@ -17,6 +17,7 @@ const ProfilePicture = ({ userImage, onDelete, onUpload }: Props) => {
 
     const onRemoveProfileImage = async () => {
         const response = await onDelete()
+        console.log('Response from onDelete:', response)
         if (response) {
             router.refresh()
         }
@@ -27,19 +28,22 @@ const ProfilePicture = ({ userImage, onDelete, onUpload }: Props) => {
             <div className="flex h-[30vh] flex-col items-center justify-center">
                 {userImage ? (
                     <>
-                        <div className="relative h-full w-2/12">
+                        <div className="relative !rounded-full !w-2/6">
                             <Image
                                 src={userImage}
                                 alt="User_Image"
-                                fill
-                                className='object-contain rounded-lg'
+                                width={100}
+                                height={100}
+                                className='object-contain !w-full !h-[160px] '
+                                priority
+
                             />
                         </div>
                         <Button
                             onClick={onRemoveProfileImage}
                             className="bg-transparent cursor-pointer text-white/70 hover:bg-transparent hover:text-white"
                         >
-                            <X /> Remove Logo
+                            <X /> Remove
                         </Button>
                     </>
                 ) : (

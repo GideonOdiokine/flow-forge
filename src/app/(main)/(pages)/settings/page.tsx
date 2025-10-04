@@ -6,7 +6,7 @@ import { currentUser } from '@clerk/nextjs/server'
 
 // type Props = {}
 
-const Settings = async () => {
+const Settings = async (props) => {
   const authUser = await currentUser()
   if (!authUser) return null
 
@@ -67,7 +67,7 @@ const Settings = async () => {
         </div>
         <ProfilePicture
           onDelete={removeProfileImage}
-          userImage={authUser?.imageUrl || ''}
+          userImage={user?.profileImage || ''}
           onUpload={uploadProfileImage}
         />
         <ProfileForm
