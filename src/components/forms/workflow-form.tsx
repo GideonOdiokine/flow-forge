@@ -44,7 +44,7 @@ const Workflowform = ({ subTitle, title }: Props) => {
         },
     })
 
-    const isLoading = form.formState.isLoading
+    const isLoading = form.formState.isSubmitting
     const router = useRouter()
 
     const handleSubmit = async (values: z.infer<typeof WorkflowFormSchema>) => {
