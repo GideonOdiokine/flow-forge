@@ -8,34 +8,36 @@ import { Plus } from 'lucide-react'
 import React from 'react'
 
 const WorkflowButton = (props) => {
-  const { setOpen, setClose } = useModal()
-  const { credits } = useBilling()
+    const { setOpen, setClose } = useModal()
+    const { credits } = useBilling()
 
-  const handleClick = () => {
-    setOpen(
-      <CustomModal
-        title="Create a Workflow Automation"
-        subheading="Workflows are a powerfull that help you automate tasks."
-      >
-        <Workflowform />
-      </CustomModal>
+    const handleClick = () => {
+        setOpen(
+            <CustomModal
+                title="Create a Workflow Automation"
+                subheading="Workflows are a powerfull that help you automate tasks."
+            >
+                <Workflowform />
+            </CustomModal>
+        )
+    }
+
+    return (
+        <Button
+            aria-label='Create Workflow'
+            size={'icon'}
+            className='!bg-muted hover:!bg-primary/90 '
+            {...(credits !== '0'
+                ? {
+                    onClick: handleClick,
+                }
+                : {
+                    disabled: true,
+                })}
+        >
+            <Plus />
+        </Button>
     )
-  }
-
-  return (
-    <Button
-      size={'icon'}
-      {...(credits !== '0'
-        ? {
-            onClick: handleClick,
-          }
-        : {
-            disabled: true,
-          })}
-    >
-      <Plus />
-    </Button>
-  )
 }
 
 export default WorkflowButton

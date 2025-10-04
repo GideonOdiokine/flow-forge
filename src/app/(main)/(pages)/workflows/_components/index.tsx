@@ -1,20 +1,18 @@
 import React from 'react'
 import Workflow from './workflow'
-// import { onGetWorkflows } from '../_actions/workflow-connections'
+
 import MoreCredits from './more-credits'
+import { onGetWorkflows } from '../_actions/workflow-connection'
 
 
 const Workflows = async () => {
-  const workflows = await [{
-    id: '1', name: 'Sample Workflow', description: 'This is a sample workflow',
-
-  }]
+  const workflows = await onGetWorkflows()
   return (
     <div className="relative flex flex-col gap-4">
       <section className="flex flex-col m-2">
         <MoreCredits />
-        {[]?.length ? (
-          [workflows].map((flow) => (
+        {workflows?.length ? (
+          workflows.map((flow) => (
             <Workflow
               key={flow.id}
               {...flow}
