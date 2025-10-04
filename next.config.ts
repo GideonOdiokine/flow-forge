@@ -28,6 +28,9 @@ const nextConfig: NextConfig = {
     // Temporary: ignore ESLint during builds
     ignoreDuringBuilds: true,
   },
+   experimental: {
+    optimizeCss: true,
+  },
 
   async headers() {
     return [

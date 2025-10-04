@@ -31,11 +31,16 @@ const ProfilePicture = ({ userImage, onDelete, onUpload }: Props) => {
                         <div className="relative !rounded-full !w-2/6">
                             <Image
                                 src={userImage}
-                                alt="User_Image"
+                                alt="User profile photo"
                                 width={100}
                                 height={100}
-                                className='object-contain !w-full !h-[160px] '
+                                className="object-contain w-full h-[160px]"
                                 priority
+                                fetchPriority="high"
+                                sizes="(max-width: 768px) 100vw, 50vw"
+                                placeholder="blur"
+                                blurDataURL="/placeholder.png" // optional low-quality image
+
 
                             />
                         </div>
