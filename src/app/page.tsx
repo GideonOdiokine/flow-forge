@@ -3,7 +3,7 @@ import { HeroParallax } from '@/components/global/connect-parallex';
 import { ContainerScroll } from '@/components/global/container-scroll-animation';
 import { InfiniteMovingCards } from '@/components/global/infinite-moving-cards';
 import { LampComponent } from '@/components/global/lamp';
-import Navbar from '@/components/global/navbar';
+import Navbar from '@/components/global/Navbar';
 import PricingCard from '@/components/global/PricingCard';
 import { Button } from '@/components/ui/button';
 import { clients, plans, products } from '@/lib/constant';
