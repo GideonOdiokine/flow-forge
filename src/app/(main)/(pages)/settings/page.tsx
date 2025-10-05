@@ -4,7 +4,7 @@ import ProfilePicture from './_components/profile-picture'
 import { db } from '@/lib/db'
 import { currentUser } from '@clerk/nextjs/server'
 import { unstable_cache } from 'next/cache'
-import { removeProfileImage, uploadProfileImage } from './_actions/settings'
+import { removeProfileImage, updateUserInfo, uploadProfileImage } from './_actions/settings'
 
 // type Props = {}
 const getUser = unstable_cache(
@@ -21,19 +21,6 @@ const Settings = async (props) => {
     // Fetch user from cache or database
     const user = await getUser(authUser.id)
 
-    const updateUserInfo = async (name: string) => {
-        'use server'
-
-        const updateUser = await db.user.update({
-            where: {
-                clerkId: authUser.id,
-            },
-            data: {
-                name,
-            },
-        })
-        return updateUser
-    }
 
     return (
         <div className="flex flex-col gap-4">

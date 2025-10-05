@@ -33,3 +33,22 @@ export async function removeProfileImage() {
 
   return response
 }
+
+'use server'
+
+
+
+export async function updateUserInfo(name: string) {
+  const authUser = await currentUser()
+  if (!authUser) return null
+
+  const updateUser = await db.user.update({
+    where: { clerkId: authUser.id },
+    data: { name },
+  })
+
+  // Bust the settings page cache
+  revalidatePath('/settings')
+
+  return updateUser
+}
