@@ -38,8 +38,8 @@ const ProfilePicture = ({ userImage, onDelete, onUpload }: Props) => {
                                 priority
                                 fetchPriority="high"
                                 sizes="(max-width: 768px) 100vw, 50vw"
-                                placeholder="blur"
-                                blurDataURL="/placeholder.png" // optional low-quality image
+                                // placeholder="blur"
+                                // blurDataURL="/placeholder.png" // optional low-quality image
 
 
                             />

@@ -1,25 +1,25 @@
-'use client'
-import React, { useEffect } from 'react'
-import { ModeToggle } from '../global/mode-toggle'
-import { Book, Headphones, Search } from 'lucide-react'
-import Templates from '../icons/cloud_download'
-import { Input } from '@/components/ui/input'
+"use client";
+import React, { useEffect } from "react";
+import { ModeToggle } from "../global/mode-toggle";
+import { Book, Headphones, Search } from "lucide-react";
+import Templates from "../icons/cloud_download";
+import { Input } from "@/components/ui/input";
 
 import {
     Tooltip,
     TooltipContent,
     TooltipProvider,
     TooltipTrigger,
-} from '@/components/ui/tooltip'
-import { UserButton } from '@clerk/nextjs'
-import { useBilling } from '@/providers/billing-provider'
+} from "@/components/ui/tooltip";
+import { UserButton } from "@clerk/nextjs";
+import { useBilling } from "@/providers/billing-provider";
 // import { onPaymentDetails } from '@/app/(main)/(pages)/billing/_actions/payment-connecetions'
 
 // type Props = {}
 
 const InfoBar = (props: any) => {
-    const { credits, setCredits, setTier } = useBilling()
-    const tier: any = 'Free' //temporary
+    const { credits, setCredits, setTier } = useBilling();
+    const tier: any = "Free"; //temporary
 
     const onGetPayment = async () => {
         // const response = await onPaymentDetails()
@@ -27,21 +27,21 @@ const InfoBar = (props: any) => {
         //   setTier(response.tier!)
         //   setCredits(response.credits!)
         // }
-    }
+    };
 
     useEffect(() => {
-        onGetPayment()
-    }, [])
+        onGetPayment();
+    }, []);
 
     return (
         <div className="flex flex-row justify-end gap-6 items-center px-4 py-4 w-full dark:bg-black ">
             <span className="flex items-center gap-2 font-bold">
                 <p className="text-sm font-light text-gray-300">Credits</p>
-                {tier == 'Unlimited' ? (
+                {tier == "Unlimited" ? (
                     <span>Unlimited</span>
                 ) : (
                     <span>
-                        {credits}/{tier == 'Free' ? '10' : tier == 'Pro' && '100'}
+                        {credits}/{tier == "Free" ? "10" : tier == "Pro" && "100"}
                     </span>
                 )}
             </span>
@@ -57,7 +57,7 @@ const InfoBar = (props: any) => {
                     <TooltipTrigger>
                         <Headphones />
                     </TooltipTrigger>
-                    <TooltipContent className='text-black'>
+                    <TooltipContent className="text-black">
                         <p>Contact Support</p>
                     </TooltipContent>
                 </Tooltip>
@@ -67,14 +67,14 @@ const InfoBar = (props: any) => {
                     <TooltipTrigger>
                         <Book />
                     </TooltipTrigger>
-                    <TooltipContent className='text-black'>
+                    <TooltipContent className="text-black">
                         <p>Guide</p>
                     </TooltipContent>
                 </Tooltip>
             </TooltipProvider>
             <UserButton />
         </div>
-    )
-}
+    );
+};
 
-export default InfoBar
+export default InfoBar;
