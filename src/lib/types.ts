@@ -1,23 +1,16 @@
 // import { ConnectionProviderProps } from '@/providers/connections-provider'
-import { z } from 'zod'
 
-export const EditUserProfileSchema = z.object({
-    email: z.string().email('Required'),
-    name: z.string().min(1, 'Name is required'),
-})
 
-export const WorkflowFormSchema = z.object({
-    name: z.string().min(1, 'Name is required'),
-    description: z.string().min(1, 'Description is required'),
-})
+
+
 
 export type ConnectionTypes = 'Google Drive' | 'Notion' | 'Slack' | 'Discord'
 
 export type Connection = {
     title: ConnectionTypes
-    description: string
     image: string
-    //   connectionKey: keyof ConnectionProviderProps
+    description: string
+    connectionKey: string
     accessTokenKey?: string
     alwaysTrue?: boolean
     slackSpecial?: boolean

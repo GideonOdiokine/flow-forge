@@ -2,6 +2,26 @@
 import { db } from '@/lib/db'
 import { auth, currentUser } from '@clerk/nextjs/server'
 
+
+export const onCreateNodesEdges = async (
+  flowId: string,
+  nodes: string,
+  edges: string,
+  flowPath: string
+) => {
+  const flow = await db.workflows.update({
+    where: {
+      id: flowId,
+    },
+    data: {
+      nodes,
+      edges,
+      flowPath: flowPath,
+    },
+  })
+
+  if (flow) return { message: 'flow saved' }
+}
 export const getGoogleListener = async () => {
   const { userId } = await auth()
 

@@ -1,51 +1,30 @@
-import ProfileForm from '@/components/forms/profile-form'
-import React from 'react'
-import ProfilePicture from './_components/profile-picture'
-import { db } from '@/lib/db'
-import { currentUser } from '@clerk/nextjs/server'
-import { unstable_cache } from 'next/cache'
-import { removeProfileImage, updateUserInfo, uploadProfileImage } from './_actions/settings'
+import React from "react";
+import { db } from "@/lib/db";
+import { currentUser } from "@clerk/nextjs/server";
+import SettingsClient from "./_components/SettingsClient"
 
-// type Props = {}
-const getUser = unstable_cache(
-    async (clerkId: string) => {
-        return db.user.findUnique({ where: { clerkId } })
-    },
-    ['user-profile'],
-    { revalidate: 60 }
-)
-const Settings = async (props) => {
-    const authUser = await currentUser()
-    if (!authUser) return null
+const Settings = async () => {
+  const authUser = await currentUser();
+  if (!authUser) return null;
 
-    // Fetch user from cache or database
-    const user = await getUser(authUser.id)
+  const user = await db.user.findUnique({ where: { clerkId: authUser.id } });
 
-
-    return (
-        <div className="flex flex-col gap-4">
-            <h1 className="sticky top-0 z-[10] flex items-center justify-between border-b bg-background/50 p-6 text-4xl backdrop-blur-lg">
-                <span>Settings</span>
-            </h1>
-            <div className="flex flex-col gap-10 p-6">
-                <div>
-                    <h2 className="text-2xl font-bold">User Profile</h2>
-                    <p className="text-base text-white/50">
-                        Add or update your information
-                    </p>
-                </div>
-                <ProfilePicture
-                    onDelete={removeProfileImage}
-                    userImage={user?.profileImage || ''}
-                    onUpload={uploadProfileImage}
-                />
-                <ProfileForm
-                    user={user}
-                    onUpdate={updateUserInfo}
-                />
-            </div>
+  return (
+    <div className="flex flex-col gap-4">
+      <h1 className="sticky top-0 z-[10] flex items-center justify-between border-b bg-background/50 p-6 text-4xl backdrop-blur-lg">
+        <span>Settings</span>
+      </h1>
+      <div className="flex flex-col gap-10 p-6">
+        <div>
+          <h2 className="text-2xl font-bold">User Profile</h2>
+          <p className="text-base text-white/50">
+            Add or update your information
+          </p>
         </div>
-    )
-}
+        <SettingsClient user={user} />
+      </div>
+    </div>
+  );
+};
 
-export default Settings
+export default Settings;

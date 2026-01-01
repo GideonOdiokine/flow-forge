@@ -12,7 +12,7 @@ const withAnalyzer = withBundleAnalyzer({
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
+//   swcMinify: true,
   compress: true,
 
   images: {

@@ -1,5 +1,6 @@
 'use server'
 import { db } from '@/lib/db'
+import { EditUserProfileSchema } from '@/lib/schemas/profile'
 import { currentUser } from '@clerk/nextjs/server'
 import { revalidatePath } from 'next/cache'
 
@@ -35,16 +36,23 @@ export async function removeProfileImage() {
 
 
 
-export async function updateUserInfo(name: string) {
+export async function updateUserInfo(formData: any) {
   const authUser = await currentUser()
   if (!authUser) return null
 
+  // ⛔ server-side validation (the ONLY correct place)
+  const parsed = EditUserProfileSchema.safeParse(formData)
+  if (!parsed.success) {
+    throw new Error("Invalid user profile information")
+  }
+
+  const { name, email } = parsed.data
+
   const updateUser = await db.user.update({
     where: { clerkId: authUser.id },
-    data: { name },
+    data: { name, email },
   })
 
-  // Bust the settings page cache
   revalidatePath('/settings')
 
   return updateUser

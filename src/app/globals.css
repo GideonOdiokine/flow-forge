@@ -151,5 +151,10 @@
         rgba(194, 254, 113, 1) 90.1%
       );
     }
+    /* Example: Change control button color */
+    .react-flow__controls-button {
+      background-color: #bd8aff !important;
+      color: white;
+    }
   }
 }

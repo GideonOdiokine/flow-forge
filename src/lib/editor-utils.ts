@@ -12,13 +12,15 @@
 // } from '@/app/(main)/(pages)/connections/_actions/slack-connection'
 // import { Option } from '@/components/ui/multiple-selector'
 
-// export const onDragStart = (
-//   event: any,
-//   nodeType: EditorCanvasCardType['type']
-// ) => {
-//   event.dataTransfer.setData('application/reactflow', nodeType)
-//   event.dataTransfer.effectAllowed = 'move'
-// }
+import { EditorCanvasCardType } from './types'
+
+export const onDragStart = (
+  event: any,
+  nodeType: EditorCanvasCardType['type']
+) => {
+  event.dataTransfer.setData('application/reactflow', nodeType)
+  event.dataTransfer.effectAllowed = 'move'
+}
 
 // export const onSlackContent = (
 //   nodeConnection: ConnectionProviderProps,
